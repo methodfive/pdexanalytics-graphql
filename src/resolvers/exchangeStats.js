@@ -14,7 +14,10 @@ export async function getQuickStats()
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            `select * from exchange_24h`,
+            `
+select * 
+from exchange_24h 
+`,
             null,
             ([rows,fields]) => {
                 for(let i = 0; i < rows.length; i++)
@@ -45,7 +48,11 @@ export async function getExchangeDaily()
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            `select * from exchange_daily order by stat_date asc`,
+            `
+select * 
+from exchange_daily 
+order by stat_date asc 
+`,
             null,
             ([rows,fields]) => {
                 for (let i = 0; i < rows.length; i++) {

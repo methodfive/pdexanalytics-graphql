@@ -15,9 +15,12 @@ export async function getAssets()
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            ` select assets.symbol, assets.name, assets_24h.* from assets 
- join assets_24h on assets_24h.asset_id = assets.asset_id 
- order by tvl desc `,
+            `
+select assets.symbol, assets.name, assets_24h.* 
+from assets 
+join assets_24h on assets_24h.asset_id = assets.asset_id 
+order by tvl desc 
+`,
             null,
             ([rows,fields]) => {
                 for(let i = 0; i < rows.length; i++)
@@ -50,9 +53,12 @@ export async function getAsset(assetID)
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            ` select assets.symbol, assets.name, assets_24h.* from assets 
- join assets_24h on assets_24h.asset_id = assets.asset_id 
- where assets.symbol = ? `,
+            `
+select assets.symbol, assets.name, assets_24h.* 
+from assets 
+join assets_24h on assets_24h.asset_id = assets.asset_id 
+where assets.symbol = ? 
+`,
             [assetID],
             ([rows,fields]) => {
                 for(let i = 0; i < rows.length; i++)
@@ -85,10 +91,12 @@ export async function getAssetDaily(assetID)
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            `select assets_daily.* from assets_daily 
-    join assets on assets.asset_id = assets_daily.asset_id
-    where symbol = ? 
-    order by stat_date asc`,
+            `
+select assets_daily.* 
+from assets_daily 
+join assets on assets.asset_id = assets_daily.asset_id 
+where symbol = ? 
+order by stat_date asc`,
             [assetID],
             ([rows,fields]) => {
                 for(let i = 0; i < rows.length; i++)
@@ -119,7 +127,11 @@ export async function getAssetsByMarketPair(connectionPool, baseSymbol, quoteSym
     let result = {};
     try {
         await queryAsyncWithRetries(connectionPool,
-            `select * from assets where symbol = ? or symbol = ?`,
+            `
+select * 
+from assets 
+where symbol = ? or symbol = ?
+`,
             [baseSymbol, quoteSymbol],
             ([rows,fields]) => {
                 for(let i = 0; i < rows.length; i++)

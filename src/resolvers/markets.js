@@ -16,7 +16,9 @@ export async function getMarkets()
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            `select markets_24h.*, a1.name as base_name, a1.symbol as base_symbol, a2.name as quote_name, a2.symbol as quote_symbol  from markets 
+            `
+select markets_24h.*, a1.name as base_name, a1.symbol as base_symbol, a2.name as quote_name, a2.symbol as quote_symbol 
+from markets 
 join assets a1 on a1.asset_id = markets.base_asset_id 
 join assets a2 on a2.asset_id = markets.quote_asset_id 
 join markets_24h on markets_24h.base_asset_id = markets.base_asset_id and markets_24h.quote_asset_id = markets.quote_asset_id 
@@ -65,7 +67,9 @@ export async function getMarket(baseAssetID, quoteAssetID)
         }
 
         await queryAsyncWithRetries(connectionPool,
-            `select markets_24h.*, a1.name as base_name, a1.symbol as base_symbol, a2.name as quote_name, a2.symbol as quote_symbol  from markets 
+            `
+select markets_24h.*, a1.name as base_name, a1.symbol as base_symbol, a2.name as quote_name, a2.symbol as quote_symbol  
+from markets 
 join assets a1 on a1.asset_id = markets.base_asset_id 
 join assets a2 on a2.asset_id = markets.quote_asset_id 
 join markets_24h on markets_24h.base_asset_id = markets.base_asset_id and markets_24h.quote_asset_id = markets.quote_asset_id 
@@ -114,9 +118,11 @@ export async function getMarketDaily(baseAssetID, quoteAssetID)
         }
 
         await queryAsyncWithRetries(connectionPool,
-            `select markets_daily.*, a1.name as base_name, a1.symbol as base_symbol, a2.name as quote_name, a2.symbol as quote_symbol from markets_daily
-join assets a1 on a1.asset_id = markets_daily.base_asset_id
-join assets a2 on a2.asset_id = markets_daily.quote_asset_id
+            `
+select markets_daily.*, a1.name as base_name, a1.symbol as base_symbol, a2.name as quote_name, a2.symbol as quote_symbol 
+from markets_daily 
+join assets a1 on a1.asset_id = markets_daily.base_asset_id 
+join assets a2 on a2.asset_id = markets_daily.quote_asset_id 
 where markets_daily.base_asset_id = ? && markets_daily.quote_asset_id = ?
 order by stat_date asc `,
             [baseAssetID, quoteAssetID],

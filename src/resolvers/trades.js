@@ -14,7 +14,9 @@ export async function getTrades()
         connectionPool = await getConnection();
 
         await queryAsyncWithRetries(connectionPool,
-            `select trades.*, a_base.symbol as base_symbol, a_quote.symbol as quote_symbol from trades 
+            `
+select trades.*, a_base.symbol as base_symbol, a_quote.symbol as quote_symbol 
+from trades 
 join assets a_base on a_base.asset_id = trades.base_asset_id 
 join assets a_quote on a_quote.asset_id = trades.quote_asset_id 
 order by timestamp desc limit 100`,
