@@ -51,6 +51,10 @@ export const typeDefs = `
     str: String
     ph: String
     pstr: String
+    tb: String
+    tt: String
+    ptb: String
+    ptt: String
   }
   
   type ExchangeDaily {
@@ -63,6 +67,8 @@ export const typeDefs = `
     sv: String
     h: String
     str: String
+    tb: String
+    tt: String
   }
   
   type AssetDaily {

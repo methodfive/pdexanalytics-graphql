@@ -13,6 +13,8 @@ export const transformExchangeDaily = item => {
     s: item.total_staked,
     sv: item.staked_tvl,
     h: item.total_holders,
-    str: item.total_stakers
+    str: item.total_stakers,
+    tb: item.treasury_balance,
+    tt: item.treasury_tvl
   };
 };

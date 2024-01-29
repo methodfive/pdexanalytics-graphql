@@ -20,6 +20,10 @@ export const transformQuickStats24H = item => {
     t: item.trades,
     v: item.volume,
     pt: item.previous_trades,
-    pv: item.previous_volume
+    pv: item.previous_volume,
+    tb: item.treasury_balance,
+    tt: item.treasury_tvl,
+    ptb: item.previous_treasury_balance,
+    ptt: item.previous_treasury_tvl
   };
 };
