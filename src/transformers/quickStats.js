@@ -24,6 +24,8 @@ export const transformQuickStats24H = item => {
     tb: item.treasury_balance,
     tt: item.treasury_tvl,
     ptb: item.previous_treasury_balance,
-    ptt: item.previous_treasury_tvl
+    ptt: item.previous_treasury_tvl,
+    ti: item.total_issuance,
+    pti: item.previous_total_issuance
   };
 };

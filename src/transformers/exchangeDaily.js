@@ -15,6 +15,7 @@ export const transformExchangeDaily = item => {
     h: item.total_holders,
     str: item.total_stakers,
     tb: item.treasury_balance,
-    tt: item.treasury_tvl
+    tt: item.treasury_tvl,
+    ti: item.total_issuance
   };
 };
