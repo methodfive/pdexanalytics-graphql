@@ -1,5 +1,4 @@
 import {getConnection, queryAsyncWithRetries, releaseConnection} from "./database.js";
-import {transformMarkets} from "../transformers/markets.js";
 import {transformTrade} from "../transformers/trades.js";
 import {DB_RETRIES} from "../constants.js";
 

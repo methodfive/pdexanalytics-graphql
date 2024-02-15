@@ -5,10 +5,3 @@ export function isEmpty(e) {
 export function isNumber(n){
     return Number(n)=== n;
 }
-
-export function convertToNumber(e) {
-    if(isEmpty(e))
-        return;
-
-    return Number(e);
-}

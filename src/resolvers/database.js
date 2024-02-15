@@ -1,7 +1,5 @@
 import * as mysql2 from "mysql2";
-
 import pkg from 'aws-sdk';
-import {transformExchangeDaily} from "../transformers/exchangeDaily.js";
 const {RDS} = pkg;
 
 export const IS_LAMBDA = process.env.NOT_LAMBDA == null ? true : false;
