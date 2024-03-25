@@ -47,6 +47,8 @@ export const typeDefs = `
     pt: String
     u: String
     pu: String
+    nu: String
+    pnu: String
     h: String
     str: String
     ph: String
@@ -64,6 +66,7 @@ export const typeDefs = `
     tv: String
     v: String
     u: String
+    nu: String
     t: String
     s: String
     sv: String

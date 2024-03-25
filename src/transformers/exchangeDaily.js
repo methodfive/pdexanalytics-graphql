@@ -9,6 +9,7 @@ export const transformExchangeDaily = item => {
     tv: item.tvl,
     v: item.volume,
     u: item.users,
+    nu: item.new_users,
     t: item.trades,
     s: item.total_staked,
     sv: item.staked_tvl,

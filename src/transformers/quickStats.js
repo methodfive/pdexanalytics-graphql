@@ -13,6 +13,8 @@ export const transformQuickStats24H = item => {
     pstr: item.previous_total_stakers,
     u: item.users,
     pu: item.previous_users,
+    nu: item.new_users,
+    pnu: item.previous_new_users,
     s: item.staked_tvl,
     ps: item.previous_staked_tvl,
     st: item.total_staked,
