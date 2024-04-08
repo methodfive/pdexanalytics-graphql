@@ -28,6 +28,8 @@ export const transformQuickStats24H = item => {
     ptb: item.previous_treasury_balance,
     ptt: item.previous_treasury_tvl,
     ti: item.total_issuance,
-    pti: item.previous_total_issuance
+    pti: item.previous_total_issuance,
+    f: item.new_total_fees,
+    pf: item.previous_new_total_fees
   };
 };

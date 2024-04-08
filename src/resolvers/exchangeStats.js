@@ -71,3 +71,35 @@ order by stat_date asc
 
     return results;
 }
+
+export async function getExchangeAllTime()
+{
+    console.log("getExchangeAllTime:");
+
+    let connectionPool = null;
+    let result = {};
+
+    try {
+        connectionPool = await getConnection();
+
+        await queryAsyncWithRetries(connectionPool,
+            `
+select * 
+from exchange_alltime`,
+            null,
+            ([rows,fields]) => {
+                for (let i = 0; i < rows.length; i++) {
+                    result = transformExchangeDaily(rows[i]);
+                }
+            }, DB_RETRIES);
+    }
+    catch(e) {
+        console.error("Error fetching exchange all time",e);
+    }
+    finally
+    {
+        releaseConnection(connectionPool);
+    }
+
+    return result;
+}

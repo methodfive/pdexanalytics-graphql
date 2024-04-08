@@ -59,12 +59,15 @@ export const typeDefs = `
     ptt: String
     ti: String
     pti: String
+    f: String
+    pf: String
   }
   
   type ExchangeDaily {
     d: String
     tv: String
     v: String
+    f: String
     u: String
     nu: String
     t: String
@@ -90,6 +93,7 @@ export const typeDefs = `
   type Query {
     quickStats: QuickStats,
     exchangeDaily: [ExchangeDaily],
+    exchangeAllTime: ExchangeDaily,
     markets: [Market],
     assets: [Asset],
     market(baseAssetID: String, quoteAssetID: String): Market,

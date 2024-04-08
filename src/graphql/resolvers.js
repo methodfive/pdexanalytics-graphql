@@ -1,4 +1,4 @@
-import {getExchangeDaily, getQuickStats} from "../resolvers/exchangeStats.js";
+import {getExchangeAllTime, getExchangeDaily, getQuickStats} from "../resolvers/exchangeStats.js";
 import {getMarket, getMarketDaily, getMarkets} from "../resolvers/markets.js";
 import {getAsset, getAssetDaily, getAssets} from "../resolvers/assets.js";
 import {getTrades} from "../resolvers/trades.js";
@@ -11,6 +11,10 @@ export const resolvers = {
 
     exchangeDaily(obj, args, context, info) {
       return getExchangeDaily();
+    },
+
+    exchangeAllTime(obj, args, context, info) {
+      return getExchangeAllTime();
     },
 
     markets(obj, args, context, info) {

@@ -5,10 +5,11 @@ export const transformExchangeDaily = item => {
     return;
 
   return {
-    d: (item.stat_date).getTime(),
+    d: (item.stat_date != null) ? (item.stat_date).getTime() : null,
     tv: item.tvl,
     v: item.volume,
     u: item.users,
+    f: item.new_total_fees || item.total_fees,
     nu: item.new_users,
     t: item.trades,
     s: item.total_staked,
