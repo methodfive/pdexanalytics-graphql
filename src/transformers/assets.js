@@ -6,7 +6,7 @@ export const transformAssets = item => {
 
   return {
     i: item.asset_id,
-    n: item.name,
+    n: isEmpty(item.real_name) ? item.name : item.real_name,
     s: item.symbol,
     p: item.price,
     t: item.tvl,

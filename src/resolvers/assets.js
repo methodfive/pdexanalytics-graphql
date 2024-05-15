@@ -16,7 +16,7 @@ export async function getAssets()
 
         await queryAsyncWithRetries(connectionPool,
             `
-select assets.symbol, assets.name, assets_24h.* 
+select assets.symbol, assets.name, assets.real_name, assets_24h.* 
 from assets 
 join assets_24h on assets_24h.asset_id = assets.asset_id 
 order by tvl desc 
@@ -54,7 +54,7 @@ export async function getAsset(assetID)
 
         await queryAsyncWithRetries(connectionPool,
             `
-select assets.symbol, assets.name, assets_24h.* 
+select assets.symbol, assets.name, assets.real_name, assets_24h.* 
 from assets 
 join assets_24h on assets_24h.asset_id = assets.asset_id 
 where assets.symbol = ? 
